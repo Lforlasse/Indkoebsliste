@@ -8,13 +8,17 @@
   <component name="ChangeListManager">
     <list default="true" id="9e47d5a2-6bcb-4ad0-b6a3-3cc9f05176fe" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/OpretBruger.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/OpretBruger.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/LogInServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/LogInServlet.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/Huskeliste.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/Huskeliste.jsp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/webapp/index.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/index.jsp" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FavoritesManager">
+    <favorites_list name="Indkoebsliste" />
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -225,7 +229,7 @@
       <updated>1583314930155</updated>
       <workItem from="1583314938029" duration="2808000" />
       <workItem from="1583317761793" duration="1092000" />
-      <workItem from="1583322825609" duration="6654000" />
+      <workItem from="1583322825609" duration="7176000" />
     </task>
     <servers />
   </component>

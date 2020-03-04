@@ -13,6 +13,8 @@
 <body>
 
 Du har nu adgang til din huskeliste.
+<br>
+<br>
 
 </body>
 </html>

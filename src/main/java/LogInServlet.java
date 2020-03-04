@@ -20,9 +20,15 @@ public class LogInServlet extends HttpServlet {
 
         if(servletContext.getAttribute("brugerMap") == null) {
             Map<String, String> brugerMap = new HashMap<>();
+
+                brugerMap.put("admin","asdqwe123"); //ADMIN BRUGER.
                 brugerMap.put("test","test"); //TEST BRUGER.
 
             servletContext.setAttribute("brugerMap", brugerMap);
+        }
+
+        if(((Map<String, String>)servletContext.getAttribute("brugerMap")).containsKey(navn)){
+
         }
 
         if(!((Map<String, String>)servletContext.getAttribute("brugerMap")).containsKey(navn)){
@@ -32,7 +38,12 @@ public class LogInServlet extends HttpServlet {
         }
 
         if(((Map<String, String>)servletContext.getAttribute("brugerMap")).get(navn).equalsIgnoreCase(kodeord)){
-             //todo gå til huskeliste
+
+            if(navn.equalsIgnoreCase("admin")){
+             //todo gå til adminside.
+                request.getRequestDispatcher("WEB-INF/admin.jsp").forward(request,response);
+
+            }
             request.getRequestDispatcher("WEB-INF/Huskeliste.jsp").forward(request,response);
         }
 

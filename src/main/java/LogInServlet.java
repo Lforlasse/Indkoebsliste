@@ -8,7 +8,9 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.io.IOException;
 import java.util.HashMap;
+import java.util.HashSet;
 import java.util.Map;
+import java.util.Set;
 
 @WebServlet(name = "LogInServlet", urlPatterns = {"/LogInServlet"})
 public class LogInServlet extends HttpServlet {
@@ -21,39 +23,53 @@ public class LogInServlet extends HttpServlet {
         String navn = request.getParameter("navn");
         String kodeord = request.getParameter("kodeord");
 
-        if(servletContext.getAttribute("brugerMap") == null) {
+        if (servletContext.getAttribute("brugerMap") == null) {
             Map<String, String> brugerMap = new HashMap<>();
-
-                brugerMap.put("admin","asdqwe123"); //ADMIN BRUGER.
-                brugerMap.put("test","test"); //TEST BRUGER.
+            //opretter brugere
+            brugerMap.put("admin", "asdqwe123"); //ADMIN BRUGER.
+            brugerMap.put("test", "test"); //TEST BRUGER.
 
             servletContext.setAttribute("brugerMap", brugerMap);
         }
 
-        if(((Map<String, String>)servletContext.getAttribute("brugerMap")).containsKey(navn)){
+        if (((Set<String>) servletContext.getAttribute(("aktiveBrugere")) == null)) {
+            Set<String> aktivebrugere = new HashSet<>();
+            servletContext.setAttribute("aktiveBrugere", aktivebrugere);
+        }
+
+
+        if (((Map<String, String>) servletContext.getAttribute("brugerMap")).containsKey(navn)) {
 
         }
 
-        if(!((Map<String, String>)servletContext.getAttribute("brugerMap")).containsKey(navn)){
+        if (!((Map<String, String>) servletContext.getAttribute("brugerMap")).containsKey(navn)) {
             request.setAttribute("besked", "Registrer din bruger på huskelisten:");
-            request.getRequestDispatcher("WEB-INF/OpretBruger.jsp").forward(request,response);
+            request.getRequestDispatcher("WEB-INF/OpretBruger.jsp").forward(request, response);
         }
 
-        if(((Map<String, String>)servletContext.getAttribute("brugerMap")).get(navn).equalsIgnoreCase(kodeord)){
+        if (((Map<String, String>) servletContext.getAttribute("brugerMap")).get(navn).equalsIgnoreCase(kodeord)) {
 
-            if(navn.equalsIgnoreCase("admin")){
+            //ADMIN
+            if (navn.equalsIgnoreCase("admin")) {
                 //ADMIN
-                request.getRequestDispatcher("WEB-INF/admin.jsp").forward(request,response);
+                request.getRequestDispatcher("WEB-INF/admin.jsp").forward(request, response);
 
             }
-            //REGISTRERER BRUGEREN
-            session.setAttribute("besked","Logget ind som: " + navn);
-            request.getRequestDispatcher("WEB-INF/Huskeliste.jsp").forward(request,response);
+
+            if (!((Set<String>) servletContext.getAttribute(("aktiveBrugere"))).contains(navn)) {
+
+                ((Set<String>)servletContext.setAttribute("aktiveBrugere")).add(navn);
+
+                //REGISTRERER BRUGEREN
+                session.setAttribute("besked", "Logget ind som: " + navn);
+                request.getRequestDispatcher("WEB-INF/Huskeliste.jsp").forward(request, response);
+
+            }
         }
 
         //todo gå til logIn dvs. index siden.
-        request.setAttribute("besked", "Din kode var forkert. Prøv igen");
-        request.getRequestDispatcher("index.jsp").forward(request,response);
+        request.setAttribute("besked", "Noget gik galt. Prøv igen");
+        request.getRequestDispatcher("index.jsp").forward(request, response);
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

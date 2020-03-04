@@ -7,7 +7,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="9e47d5a2-6bcb-4ad0-b6a3-3cc9f05176fe" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/KoebServlet.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/LogOutServlet.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/LogInServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/LogInServlet.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/Huskeliste.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/Huskeliste.jsp" afterDir="false" />
@@ -229,7 +229,7 @@
       <updated>1583314930155</updated>
       <workItem from="1583314938029" duration="2808000" />
       <workItem from="1583317761793" duration="1092000" />
-      <workItem from="1583322825609" duration="8687000" />
+      <workItem from="1583322825609" duration="10458000" />
     </task>
     <servers />
   </component>

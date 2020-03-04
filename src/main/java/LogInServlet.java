@@ -37,9 +37,15 @@ public class LogInServlet extends HttpServlet {
             servletContext.setAttribute("aktiveBrugere", aktivebrugere);
         }
 
+        if(!(session.getAttribute("besked")== null)){
+            request.getRequestDispatcher("WEB-INF/Huskeliste.jsp").forward(request,response);
 
+        }
+
+        //her lavede du ændringer
         if (((Map<String, String>) servletContext.getAttribute("brugerMap")).containsKey(navn)) {
-
+            request.setAttribute("besked", "Opret dig som bruger");
+            request.getRequestDispatcher("WEB-INF/OpretBruger.jsp").forward(request, response);
         }
 
         if (!((Map<String, String>) servletContext.getAttribute("brugerMap")).containsKey(navn)) {
@@ -47,6 +53,7 @@ public class LogInServlet extends HttpServlet {
             request.getRequestDispatcher("WEB-INF/OpretBruger.jsp").forward(request, response);
         }
 
+        //Admin
         if (((Map<String, String>) servletContext.getAttribute("brugerMap")).get(navn).equalsIgnoreCase(kodeord)) {
 
             //ADMIN
@@ -62,6 +69,7 @@ public class LogInServlet extends HttpServlet {
 
                 //REGISTRERER BRUGEREN
                 session.setAttribute("besked", "Logget ind som: " + navn);
+                session.setAttribute("navn", navn);
                 request.getRequestDispatcher("WEB-INF/Huskeliste.jsp").forward(request, response);
 
             }
